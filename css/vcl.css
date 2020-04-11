@@ -1,0 +1,680 @@
+/*
+* Licensed to the Apache Software Foundation (ASF) under one or more
+* contributor license agreements.  See the NOTICE file distributed with
+* this work for additional information regarding copyright ownership.
+* The ASF licenses this file to You under the Apache License, Version 2.0
+* (the "License"); you may not use this file except in compliance with
+* the License.  You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+html {
+	height: 100%;
+	width: 100%;
+}
+body {
+	height: 100%;
+	width: 100%;
+}
+.scriptonly {
+	display: none;
+}
+
+.scriptoff {
+	display: inline;
+}
+.compstatelink {
+	color: red;
+}
+
+.compstatelink a {
+	color: red;
+}
+
+.compstatelink a:hover {
+	background: #CCCCCC;
+	text-decoration: none;
+}
+
+.rescapture {
+	border: 1px solid black;
+	background-color: #eee;
+	padding: 5px;
+}
+
+#expauthul li {
+	list-style-type: disc;
+}
+
+.shown {
+	display: block;
+}
+
+.hidden {
+	display: none;
+}
+
+.hlrow td {
+	background: #ffff88;
+}
+
+.hlrow th {
+	background: #ffff88;
+}
+
+.hlcol {
+	background: #ccccff;
+}
+
+.nohlcol {
+	background: #ededed;
+}
+
+#loginhelp {
+	border: 1px solid black;
+	background-color: #ddd;
+	padding: 0.2em;
+}
+
+@media (max-width: 768px) {
+	#loginlayout {
+		display: block;
+	}
+
+	#loginform {
+		display: block;
+	}
+
+	#loginhelp {
+		display: block;
+		margin-top: 2em;
+		margin-right: 0.6em;
+	}
+
+	#siteconfiglayout,
+	#siteconfigleftcol,
+	#siteconfigrightcol {
+		display: block;
+	}
+
+	#dashlayout,
+	#dashleft,
+	#dashright {
+		display: block;
+	}
+}
+@media (min-width: 769px) {
+	#loginlayout {
+		display: table;
+		border-spacing: 0.8em;
+		border-collapse: separate;
+	}
+
+	#loginform {
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	#loginhelp {
+		display: table-cell;
+	}
+
+	#siteconfiglayout {
+		display: table;
+	}
+
+	#siteconfigleftcol {
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	#siteconfigrightcol {
+		padding-left: 0.8em;
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	#dashlayout {
+		display: table;
+	}
+
+	#dashleft {
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	#dashright {
+		padding-left: 0.8em;
+		display: table-cell;
+		vertical-align: top;
+	}
+}
+
+.rightborder {
+	border-right: 1px solid #000000;
+}
+
+.preferenceslist {
+	display: block;
+	list-style-type: none;
+	margin: 0 1px 0 0;
+	padding: 0;
+	text-align: left;
+}
+
+.preferenceslist a {
+	font-size: 15px;
+}
+
+.whenusefieldset {
+	border-width: 0px;
+}
+
+.errormsg {
+	float: right;
+	width: 100px;
+}
+
+#resStatusText {
+	width: 100%;
+	height: 100%;
+}
+
+#resStatusText table {
+	border-spacing: 5px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+#resStatusText table td {
+	padding: 0 3px;
+}
+
+#resStatusText table th {
+	padding: 0 3px;
+}
+
+.resStatusColState {
+	border-right: 1px solid #000000;
+}
+
+.resStatusColEst {
+	border-right: 1px solid #000000;
+}
+
+.usergrouptable {
+	empty-cells: hide;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+.usergrouptable form {
+	margin: 0;
+}
+
+.usergrouptable td {
+	padding-left: 1px;
+	border: solid 1px #000000;
+}
+
+.usergrouptable th {
+	border: solid 1px #000000;
+}
+
+.resourcegrouptable form {
+	margin: 0;
+}
+
+.resourcegrouptable {
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+.resourcegrouptable th {
+	border: solid 1px #000000;
+}
+
+.resourcegrouptable td {
+	padding-left: 1px;
+	border: solid 1px #000000;
+}
+
+#layouttable {
+	border: solid 1px #000000;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+#layouttable td, #layouttable th {
+	vertical-align: top;
+	border: solid 1px #000000;
+}
+
+#ttlayout {
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+#ttlayout td {
+	border: solid 1px #eeeeee;
+}
+
+#listitems {
+	z-index: -10;
+	position: absolute;
+	left: 50px;
+	top: 100px;
+	background-color: lightblue;
+	border: solid 1px black;
+}
+
+#helpbox {
+	z-index: -10;
+	position: absolute;
+	left: 50px;
+	top: 100px;
+	background-color: #ffffdc;
+	border: solid 1px black;
+}
+
+.dojoDialog {
+	background: #eee;
+	border: 1px solid #999;
+	-moz-border-radius: 5px;
+	padding: 4px;
+}
+
+.vcldocpage ol {
+	list-style-type: decimal;
+}
+
+.vcldocpage ul {
+	list-style-type: disc;
+}
+
+.profileDlg {
+	background: #eee;
+	border: 1px solid #999;
+	-moz-border-radius: 5px;
+	padding: 4px;
+}
+
+.nperrormsg {
+	font-style: italic;
+	color: red;
+}
+
+.rederrormsg {
+	color: red;
+}
+
+.ready {
+	color: #008000;
+}
+
+.wait {
+	color: #e58304;
+}
+
+#revisiontable th {
+	border: solid 1px #000000;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+#revisiontable td {
+	border: solid 1px #000000;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+.numbers {
+	list-style-type: decimal;
+}
+
+.blockStatusData th {
+	text-align: right;
+	padding-right: 5px;
+}
+
+.privtreeselected {
+	background-color: #678db2;
+	color: white;
+}
+
+#maintenancenotice {
+	width: 450px;
+	padding: 3px;
+	margin: 5px;
+	border: 1px solid;
+	background-color: #f3f3f3;
+}
+
+#savestatus {
+	color: #008000;
+}
+.noicon {
+	display: none;
+}
+
+.statgraph {
+	width: 400px;
+	height: 310px;
+}
+
+.collapsetable {
+	border-collapse: collapse;
+}
+
+.tablerow0 td {
+	background-color: #dddddd;
+	padding: 2px, 0, 0, 0;
+	color: black;
+}
+
+.tablerow1 td {
+	background-color: #ffffff;
+	padding: 2px, 0, 0, 0;
+	color: black;
+}
+
+.advoptions tr th {
+	text-align: right;
+}
+
+.advoptions tr td {
+	text-align: left;
+}
+
+.highlightnotice {
+	background-color: #fffa9a;
+	border: 2px solid #eaea00;
+	padding: 3px;
+	margin: 10px;
+}
+
+.highlightnoticewarn {
+	background-color: #ffcccc;
+	border: 2px solid #ff0000;
+	padding: 3px;
+	margin: 10px;
+}
+
+.highlightnoticenotify {
+	background-color: #ccffcc;
+	border: 2px solid #00ff00;
+	padding: 3px;
+	margin: 10px;
+}
+
+#gridcontainer table th,
+#gridcontainer table td,
+#usergroupcontainer table th,
+#usergroupcontainer table td,
+#resourcegroupcontainer table th,
+#resourcegroupcontainer table td,
+#extrafiltersdiv table th,
+#extrafiltersdiv table td {
+	font-size: 1em;
+}
+
+.editmntable, #deployprofilediv table, #serverprofiledata table {
+	border-collapse: collapse;
+}
+
+.boxedtablerows {
+	border: 1px solid #000000;
+}
+
+#systemconfigdiv .dojoxMultiSelectSelectedOption,
+#groupbyresourcediv .dojoxMultiSelectSelectedOption,
+#groupbygroupdiv .dojoxMultiSelectSelectedOption,
+#mapbyresgroupdiv .dojoxMultiSelectSelectedOption,
+#mapbymaptogroupdiv .dojoxMultiSelectSelectedOption {
+	background-color: black;
+	color: white;
+}
+
+/*#configvariablegriddiv .dojoxGridCellFocus {
+	background-color: black;
+	color: white;
+}*/
+
+#systemconfigdiv .dojoxGridHeader,
+#groupbyresourcediv .dojoxGridHeader,
+#groupbygroupdiv .dojoxGridHeader, 
+#mapbyresgroupdiv .dojoxGridHeader, 
+#mapbymaptogroupdiv .dojoxGridHeader, 
+#configvariablegriddiv .dojoxGridHeader {
+	display: none;
+}
+
+#systemconfigdiv .dojoxGrid,
+#groupbyresourcediv .dojoxGrid,
+#groupbygroupdiv .dojoxGrid,
+#mapbyresgroupdiv .dojoxGrid,
+#mapbymaptogroupdiv .dojoxGrid,
+#subimagegriddiv .dojoxGrid,
+#configvariablegriddiv .dojoxGrid {
+	background-color: white;
+	border: 1px solid black;
+}
+
+#systemconfigdiv .dojoxGridRow,
+#systemconfigdiv .dojoxGridRowOdd,
+#groupbyresourcediv .dojoxGridRow,
+#groupbyresourcediv .dojoxGridRowOdd,
+#groupbygroupdiv .dojoxGridRow,
+#groupbygroupdiv .dojoxGridRowOdd,
+#mapbyresgroupdiv .dojoxGridRow,
+#mapbyresgroupdiv .dojoxGridRowOdd,
+#mapbymaptogroupdiv .dojoxGridRow,
+#mapbymaptogroupdiv .dojoxGridRowOdd,
+#subimagegriddiv .dojoxGridRow,
+#subimagegriddiv .dojoxGridRowOdd,
+#configvariablegriddiv .dojoxGridRow,
+#configvariablegriddiv .dojoxGridRowOdd {
+	width: 300px;
+	background-color: white;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+#content #systemconfigdiv table,
+#content #groupbyresourcediv table,
+#content #groupbygroupdiv table,
+#content #mapbyresgroupdiv table,
+#content #mapbymaptogroupdiv table,
+#content #subimagegriddiv table,
+#content #configvariablegriddiv table {
+	border-spacing: 0;
+}
+
+#systemconfigdiv .dojoxGridRowSelected,
+#groupbyresourcediv .dojoxGridRowSelected,
+#groupbygroupdiv .dojoxGridRowSelected,
+#mapbyresgroupdiv .dojoxGridRowSelected,
+#mapbymaptogroupdiv .dojoxGridRowSelected,
+#subimagegriddiv .dojoxGridRowSelected,
+#configvariablegriddiv .dojoxGridRowSelected {
+	width: 300px;
+	background-color: black;
+	border: none;
+	padding: 0;
+	margin: 0;
+	color: white;
+}
+
+#systemconfigdiv .dojoxGridRowSelected td,
+#groupbyresourcediv .dojoxGridRowSelected td,
+#groupbygroupdiv .dojoxGridRowSelected td,
+#mapbyresgroupdiv .dojoxGridRowSelected td,
+#mapbymaptogroupdiv .dojoxGridRowSelected td,
+#subimagegriddiv .dojoxGridRowSelected td,
+#configvariablegriddiv .dojoxGridRowSelected td {
+	background-color: black;
+	color: white;
+}
+
+#systemconfigdiv .dojoxGridCell,
+#systemconfigdiv .dojoxGridCellFocus,
+#systemconfigdiv .dojoxGridCellOver,
+#groupbyresourcediv .dojoxGridCell,
+#groupbyresourcediv .dojoxGridCellFocus,
+#groupbyresourcediv .dojoxGridCellOver,
+#groupbygroupdiv .dojoxGridCell,
+#groupbygroupdiv .dojoxGridCellFocus,
+#groupbygroupdiv .dojoxGridCellOver,
+#mapbyresgroupdiv .dojoxGridCell,
+#mapbyresgroupdiv .dojoxGridCellFocus,
+#mapbyresgroupdiv .dojoxGridCellOver,
+#mapbymaptogroupdiv .dojoxGridCell,
+#mapbymaptogroupdiv .dojoxGridCellFocus,
+#mapbymaptogroupdiv .dojoxGridCellOver,
+#subimagegriddiv .dojoxGridCell,
+#subimagegriddiv .dojoxGridCellFocus,
+#subimagegriddiv .dojoxGridCellOver,
+#configvariablegriddiv .dojoxGridCell,
+#configvariablegriddiv .dojoxGridCellFocus,
+#configvariablegriddiv .dojoxGridCellOver {
+	border: none;
+	border-style: none;
+}
+
+#systemconfigdiv .dojoxMultiSelectItemBox,
+#groupbyresourcediv .dojoxMultiSelectItemBox,
+#groupbygroupdiv .dojoxMultiSelectItemBox,
+#mapbyresgroupdiv .dojoxMultiSelectItemBox,
+#mapbymaptogroupdiv .dojoxMultiSelectItemBox,
+#subimagegriddiv .dojoxMultiSelectItemBox,
+#configvariablegriddiv .dojoxMultiSelectItemBox {
+	display: none;
+}
+
+#addeditdlgcontent label,
+#newreslabelfields label {
+	position: absolute;
+	text-align: right;
+	width: 9em;
+	font-weight: bold;
+}
+
+#newreslabelfields label {
+	width: 15em;
+}
+
+#addeditdlgcontent .labeledform {
+	margin-left: 9.5em;
+}
+
+#advancedoptions .labeledform {
+	margin-left: 17em;
+}
+
+#mgmtnodedlgcontent label {
+	width: 18.5em;
+}
+
+#mgmtnodedlgcontent .labeledform {
+	margin-left: 19em;
+}
+
+#computerdlgcontent label {
+	width: 12.5em;
+}
+
+#computerdlgcontent .labeledform {
+	margin-left: 13em;
+}
+
+#advancedoptions label {
+	width: 16.5em;
+}
+
+#addomaindlgcontent label {
+	width: 14.5em;
+}
+
+#addomaindlgcontent .labeledform {
+	margin-left: 15em;
+}
+
+#cfgvartypelbl {
+	margin-top: 6px;
+}
+
+#addeditdlgcontent .labeledforminnerlabel {
+	text-align: left;
+	font-weight: normal;
+	position: static;
+}
+
+#newreslabelfields .labeledform {
+	margin-left: 15.5em;
+}
+
+.logincol {
+	border-right: 1px solid #000000;
+}
+
+.logincell {
+	padding-right: 5px;
+	padding-left: 5px;
+	text-align: center;
+}
+
+#configvariables {
+	border: 1px solid black;
+	margin: 3px;
+}
+
+.strikethrough {
+	text-decoration: line-through;
+}
+
+#nrfixedipdiv {
+	border: 1px solid black;
+	padding: 3px;
+	margin: 3px;
+	display: inline-block;
+}
+
+.boxedoptions {
+	border: 1px solid black;
+	padding: 3px;
+	margin: 3px 1px;
+}
+
+#imageRevisionDlg .dijitDialogPaneContent {
+	height: 100%;
+	width: 100%;
+}
+
+.disabledlabel {
+	color: #888888;
+}
+
+#confdelcontent th {
+	text-align: right;
+	padding-right: 0.5em;
+}
+
+th.privheader {
+	height: 155px;
+	white-space: nowrap;
+}
+
+th.privheader > div {
+	transform:
+	  translate(0px, 60px)
+	  rotate(270deg);
+	width: 15px;
+	font-weight: bold;
+	font-size: 1.2em;
+}
