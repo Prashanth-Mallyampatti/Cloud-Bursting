@@ -1,0 +1,7 @@
+---
+AWS:
+  - user: abc
+    instance_id: ec2_1
+    key_name: abc_ec2_key
+    image_id: ami-0c322300a1dd5dc79
+    subnet_id: vpc-008c62c22daeb3abb 

@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  gather_facts: False
+  
+  vars_files:
+    - /var/www/html/vcl-2.5.1/cloud_bursting/ansible/etc/aws_instance.yml
+    - /var/www/html/vcl-2.5.1/cloud_bursting/ansible/keys/aws_keys.yml  
+  
+  tasks:
+  - name: Create Instance
+    ec2:
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      instance_type: t2.micro
+      image: "{{ item.image_id }}"
+      id: "{{ item.instance_id }}"
+      region: us-east-1
+#      assign_public_ip: yes
+#      vpc_subnet_id: "{{ item.subnet_id }}"
+#      key_name: "{{ item.key_name}}"
+      wait: yes
+      state: present
+    register: ec2
+    when:
+      - item.user == "{{ user }}"
+    with_items:
+      - "{{ AWS }}"
