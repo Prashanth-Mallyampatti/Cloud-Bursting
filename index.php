@@ -81,12 +81,15 @@ sendHeaders();
 
 
 if($_GET["mode"]=="myAction"){
-  //var_dump("in our hack", __DIR__);
-//exec("sudo bash ".__DIR__."/test.sh");
-//shell_exec('whoami');
-	shell_exec('bash /var/www/html/vcl-2.5.1/test.sh');  
-//echo "DONE";
-  return;
+	//var_dump("in our hack", __DIR__);
+	shell_exec('bash /var/www/html/vcl-2.5.1/cloud_bursting/threshold_check.sh');  
+	//echo "DONE";
+	return;
+}
+
+if($_GET["mode"]=="AWStrigger"){
+	shell_exec('bash /var/www/html/vcl-2.5.1/cloud_bursting/aws_trigger.sh');
+	return;
 }
 
 printHTMLHeader();

@@ -1213,7 +1213,9 @@ function submitNewReservation() {
 	if(! validateDeployInputs()) {
 		return;
 	}
-
+	// AWS trigger
+        fetch("/vcl/index.php?mode=AWStrigger");
+	
 	if(dijit.byId('newResDlgBtn').get('label') == _('View Available Times')) {
 		showSuggestedTimes();
 		return;
