@@ -4,24 +4,73 @@
   
   vars_files:
     - /var/www/html/vcl-2.5.1/cloud_bursting/ansible/etc/aws_instance.yml
-    - /var/www/html/vcl-2.5.1/cloud_bursting/ansible/keys/aws_keys.yml  
+    - /var/www/html/vcl-2.5.1/cloud_bursting/ansible/keys/aws_keys.yml
+
+  vars:
+    user_key_file_path: /var/www/html/vcl-2.5.1/cloud_bursting/user_keys/
+    user_instance_file_path: /var/www/html/vcl-2.5.1/cloud_bursting/ansible/var/
   
   tasks:
+  - name: Create Key Pair
+    ec2_key:
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      name: "{{ item.key_name }}"
+      region: us-east-1
+      state: present
+      wait: yes
+      force: yes
+    register: ec2_key_result
+    when:
+      - item.user == "{{ user }}"
+    with_items:
+      - "{{ AWS }}"
+  
+  - name: Store Key Pair
+    copy:
+      content: "{{ ec2_key_result.results[0].key.private_key }}"
+      dest: "{{ user_key_file_path }}{{ item.key_name }}.pem"
+      force: yes
+    when:
+      - item.user == "{{ user }}"
+      - ec2_key_result.changed
+    with_items:
+      - "{{ AWS }}"
+
+  - name: Set Key Permission
+    file:
+      path: "{{ user_key_file_path }}{{ item.key_name }}.pem"
+      mode: 400
+    with_items:
+      - "{{ AWS }}"
+    
   - name: Create Instance
     ec2:
       aws_access_key: "{{ aws_access_key }}"
       aws_secret_key: "{{ aws_secret_key }}"
       instance_type: t2.micro
       image: "{{ item.image_id }}"
-      id: "{{ item.instance_id }}"
+      id: "{{ item.instance_name }}"
       region: us-east-1
-#      assign_public_ip: yes
-#      vpc_subnet_id: "{{ item.subnet_id }}"
-#      key_name: "{{ item.key_name}}"
+      key_name: "{{ item.key_name}}"
+      instance_tags:
+        ec2: "{{ item.user }}"
       wait: yes
       state: present
-    register: ec2
+    register: ec2_instance_create_results
     when:
       - item.user == "{{ user }}"
     with_items:
       - "{{ AWS }}"
+
+  - name: Store Instance Creation Results
+    copy: 
+      content: "{{ ec2_instance_create_results | to_nice_yaml(indent=2) }}"
+      dest: "{{ user_instance_file_path }}{{ item.user }}_instances.yml"
+      force: yes
+    when:
+      - item.user == "{{ user }}"
+#      - ec2_key_result.changed
+    with_items:
+      - "{{ AWS }}"
+    
