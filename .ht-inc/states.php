@@ -27,6 +27,7 @@ $actions["nextmodes"] = array();
 
 $actions["entry"] = array('main',
 			  'myAction',
+			  'AWStrigger',
                           'viewRequests',
                           'blockAllocations',
                           'userpreferences',
@@ -234,8 +235,14 @@ $noHTMLwrappers = array('sendRDPfile',
 $actions['mode']['main'] = "main"; # entry
 $actions['pages']['main'] = "main";
 
+# Database Check
 $actions['mode']['myAction']="myAction";
 $actions['args']['myAction']="myAction";
+
+# Burst to AWS
+$actions['mode']['AWStrigger']="AWStrigger";
+$actions['args']['AWStrigger']="AWStrigger";
+
 # reservations
 $actions['mode']['AJnewRequest'] = "AJnewRequest";
 $actions['mode']['AJupdateWaitTime'] = "AJupdateWaitTime";

@@ -2421,9 +2421,6 @@ function AJnewRequest() {
 		$data = array('err' => 1,
 		              'errmsg' => $msg);
 		sendJSON($data);
-		$output = shell_exec('touch /root/testing/test_file.txt'); 
-  
-		echo "<pre>$output</pre>"; 
 		return;
 	}
 	elseif($availablerc == 0) {

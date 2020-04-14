@@ -1214,6 +1214,7 @@ function submitNewReservation() {
 		return;
 	}
 	// AWS trigger
+	if (threshold > 3)
         fetch("/vcl/index.php?mode=AWStrigger");
 	
 	if(dijit.byId('newResDlgBtn').get('label') == _('View Available Times')) {

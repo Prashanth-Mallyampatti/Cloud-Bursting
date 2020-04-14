@@ -54,7 +54,7 @@
       rules:
         - proto: all
           cidr_ip: 0.0.0.0/0
-          rule_desc: allow all traffic from anywhere
+          rule_desc: allowing all traffic from anywhere
       rules_egress:
         - proto: all
           cidr_ip: 0.0.0.0/0
