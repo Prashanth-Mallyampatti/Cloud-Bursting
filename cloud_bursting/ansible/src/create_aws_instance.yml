@@ -40,10 +40,32 @@
   - name: Set Key Permission
     file:
       path: "{{ user_key_file_path }}{{ item.key_name }}.pem"
-      mode: 400
+      mode: '400'
     with_items:
       - "{{ AWS }}"
-    
+
+  - name: Create Security Groups
+    ec2_group:
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      name: "{{ item.user }}_sg"
+      description: Security group allowing all traffic from anywhere
+      region: us-east-1
+      rules:
+        - proto: all
+          cidr_ip: 0.0.0.0/0
+          rule_desc: allow all traffic from anywhere
+      rules_egress:
+        - proto: all
+          cidr_ip: 0.0.0.0/0
+          rule_desc: allowing all traffic from anywhere
+      state: present
+    register: ec2_sg_results
+    when:
+      - item.user == "{{ user }}"
+    with_items:
+      - "{{ AWS }}"
+
   - name: Create Instance
     ec2:
       aws_access_key: "{{ aws_access_key }}"
@@ -53,6 +75,7 @@
       id: "{{ item.instance_name }}"
       region: us-east-1
       key_name: "{{ item.key_name}}"
+      group: "{{ item.user }}_sg"
       instance_tags:
         ec2: "{{ item.user }}"
       wait: yes
@@ -70,7 +93,7 @@
       force: yes
     when:
       - item.user == "{{ user }}"
-#      - ec2_key_result.changed
+      - ec2_key_result.changed
     with_items:
       - "{{ AWS }}"
     

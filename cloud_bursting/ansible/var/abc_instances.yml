@@ -1,11 +1,11 @@
-changed: false
+changed: true
 msg: All items completed
 results:
 - ansible_loop_var: item
-  changed: false
+  changed: true
   failed: false
   instance_ids:
-  - i-0bd5467f3f0d85200
+  - i-0846fb6a7e6591353
   instances:
   - ami_launch_index: '0'
     architecture: x86_64
@@ -13,23 +13,23 @@ results:
       /dev/sda1:
         delete_on_termination: true
         status: attached
-        volume_id: vol-0e62106a8286c1c9a
-    dns_name: ec2-34-201-242-115.compute-1.amazonaws.com
+        volume_id: vol-09a4f8a2985a6b9d1
+    dns_name: ec2-52-55-96-160.compute-1.amazonaws.com
     ebs_optimized: false
     groups:
       sg-00894046: default
     hypervisor: xen
-    id: i-0bd5467f3f0d85200
+    id: i-0846fb6a7e6591353
     image_id: ami-0c322300a1dd5dc79
     instance_type: t2.micro
     kernel: null
     key_name: abc_ec2_key
-    launch_time: '2020-04-14T00:58:20.000Z'
+    launch_time: '2020-04-14T03:14:56.000Z'
     placement: us-east-1c
-    private_dns_name: ip-172-31-84-242.ec2.internal
-    private_ip: 172.31.84.242
-    public_dns_name: ec2-34-201-242-115.compute-1.amazonaws.com
-    public_ip: 34.201.242.115
+    private_dns_name: ip-172-31-95-204.ec2.internal
+    private_ip: 172.31.95.204
+    public_dns_name: ec2-52-55-96-160.compute-1.amazonaws.com
+    public_ip: 52.55.96.160
     ramdisk: null
     region: us-east-1
     root_device_name: /dev/sda1
@@ -53,7 +53,7 @@ results:
       exact_count: null
       group: null
       group_id: null
-      id: ec2_101101
+      id: ec2_29
       image: ami-0c322300a1dd5dc79
       instance_ids: null
       instance_initiated_shutdown_behavior: stop
@@ -88,7 +88,7 @@ results:
       zone: null
   item:
     image_id: ami-0c322300a1dd5dc79
-    instance_name: ec2_101101
+    instance_name: ec2_29
     key_name: abc_ec2_key
     user: abc
   tagged_instances: []
