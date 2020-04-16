@@ -77,8 +77,6 @@ function initViewRequests(imaging) {
 }
 
 function showNewResDlg() {
-
-        fetch("/vcl/index.php?mode=myAction");
 	resetNewResDlg();
 	if(dojo.byId('basicrdo')) {
 		selectResType();
@@ -1213,10 +1211,9 @@ function submitNewReservation() {
 	if(! validateDeployInputs()) {
 		return;
 	}
-	// AWS trigger
-	if (threshold > 3)
-        fetch("/vcl/index.php?mode=AWStrigger");
-	
+
+	fetch("/vcl/index.php?mode=AWStrigger");
+
 	if(dijit.byId('newResDlgBtn').get('label') == _('View Available Times')) {
 		showSuggestedTimes();
 		return;

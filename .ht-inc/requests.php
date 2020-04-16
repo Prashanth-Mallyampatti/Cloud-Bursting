@@ -34,6 +34,37 @@ define("ENDDATEERR", 1 << 4);
 /// signifies an error with the submitted image id
 define("IMAGEIDERR", 1 << 5);
 
+
+
+function carrayRefresh() {
+	# here [cctedit] own function
+	global $user;
+
+	$file = '/tmp/user_file.json';
+	$content = $user['unityid'].'@'.$user['affiliation'];
+	$requestsff = getUserRequests("all");
+
+	if(file_exists($file)) {
+		$text = file_get_contents($file);
+		$jobj = json_decode($text, true);
+	}
+	else {
+		$jobj = [];
+	}
+
+	$cparray = [];	
+	$cparray['userid'] = $content;
+	$cparray['requests'] = count($requestsff);
+	$cparray['requestDetails'] = $requestsff;
+
+	$jobj[$content] = $cparray;
+	file_put_contents($file, json_encode($jobj));
+
+	$file2 = '/tmp/session.txt';
+	file_put_contents($file2, $content);
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 ///
 /// \fn viewRequests
@@ -1285,6 +1316,10 @@ function newReservationHTML() {
 	$imaging = getUserResources(array("imageAdmin"));
 	$server = getUserResources(array("serverCheckOut"), array("available"));
 
+
+	# here [cctedit] newReservationHTML()
+	carrayRefresh();	
+
 	$imagedata = getImages();
 	$baseaccess = 0;
 	$imagingaccess = 0;
@@ -2478,6 +2513,7 @@ function AJnewRequest() {
 		}
 		$allfields = implode(',', $fields);
 		$allvalues = implode(',', $values);
+		# NOTE HERE REQ GOES TO TABLE READ BY VCLD EVERY 12 SECS
 		$query = "INSERT INTO serverrequest ($allfields) VALUES ($allvalues)";
 		doQuery($query, 101);
 		if($data['ipaddr'] != '') {
@@ -2492,6 +2528,9 @@ function AJnewRequest() {
 	}
 	$data = array('err' => 0);
 	sendJSON($data);
+
+	# here [cctedit] AJNewRequest()
+	carrayRefresh();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -4108,12 +4147,16 @@ function AJconfirmDeleteRequestProduction($request) {
 ///
 ////////////////////////////////////////////////////////////////////////////////
 function AJsubmitDeleteRequest() {
-	global $mode;
+	global $mode, $user;
 	$mode = 'AJviewRequests';
 	$requestid = getContinuationVar('requestid', 0);
 	$fromtimetable = getContinuationVar('fromtimetable', 0);
 	$request = getRequestInfo($requestid);
 	deleteRequest($request);
+
+	# here [cctedit] AJsubmitDeleteRequest()
+	carrayRefresh();
+
 	if($fromtimetable) {
 		$cdata = getContinuationVar('ttdata');
 		$cont = addContinuationsEntry('showTimeTable', $cdata);
@@ -4173,7 +4216,7 @@ function AJconfirmRemoveRequest() {
 ///
 ////////////////////////////////////////////////////////////////////////////////
 function AJsubmitRemoveRequest() {
-	global $mode;
+	global $mode, $user;
 	$mode = 'AJviewRequests';
 	$requestid = getContinuationVar('requestid', 0);
 	$request = getRequestInfo($requestid, 1);
@@ -4197,6 +4240,9 @@ function AJsubmitRemoveRequest() {
 
 	$query = "DELETE FROM reservation WHERE requestid = $requestid";
 	doQuery($query, 154);
+
+	# here [cctedit] AJsubmitRemoveRequest()
+	carrayRefresh();	
 
 	viewRequests();
 }

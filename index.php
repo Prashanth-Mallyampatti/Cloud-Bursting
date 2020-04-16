@@ -79,16 +79,23 @@ checkAccess();
 
 sendHeaders();
 
-
 if($_GET["mode"]=="myAction"){
-	//var_dump("in our hack", __DIR__);
-	shell_exec('bash /var/www/html/vcl-2.5.1/cloud_bursting/threshold_check.sh');  
-	//echo "DONE";
 	return;
 }
 
 if($_GET["mode"]=="AWStrigger"){
-	shell_exec('bash /var/www/html/vcl-2.5.1/cloud_bursting/aws_trigger.sh');
+	$file = "/tmp/session.txt";
+	$file2 = "/tmp/user_file.json";
+
+	$text = file_get_contents($file);
+	$string = file_get_contents($file2);
+	$jobj = json_decode($string, true);
+	$rcount = $jobj[$text]['requests'];
+	
+	if($rcount > 0) {
+		shell_exec('bash /var/www/html/vcl-2.5.1/cloud_bursting/aws_trigger.sh');
+	}
+
 	return;
 }
 
