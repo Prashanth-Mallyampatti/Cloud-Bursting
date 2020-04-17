@@ -77,6 +77,7 @@ function initViewRequests(imaging) {
 }
 
 function showNewResDlg() {
+	fetch("/vcl/index.php?mode=myAction");
 	resetNewResDlg();
 	if(dojo.byId('basicrdo')) {
 		selectResType();
@@ -1212,8 +1213,15 @@ function submitNewReservation() {
 		return;
 	}
 
-	fetch("/vcl/index.php?mode=AWStrigger");
-
+	fetch("/vcl/index.php?mode=AWStrigger").then(httpResponse=>{
+     httpResponse.text().then(text=>{
+       if(text==1){
+         jQuery("#dijit_form_Button_4_label").click();
+       }
+       else{ 
+   
+    // from httpResponse: get the body (which is "0" or "1")
+    //console.log("hello");
 	if(dijit.byId('newResDlgBtn').get('label') == _('View Available Times')) {
 		showSuggestedTimes();
 		return;
@@ -1245,6 +1253,8 @@ function submitNewReservation() {
 	}
 	data.continuation = dojo.byId('deploycont').value;
 	RPCwrapper(data, submitNewReservationCB, 1, 30000);
+}
+})});
 }
 
 function submitNewReservationCB(data, ioArgs) {

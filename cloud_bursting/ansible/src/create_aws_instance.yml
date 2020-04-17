@@ -93,7 +93,28 @@
       force: yes
     when:
       - item.user == "{{ user }}"
-      - ec2_key_result.changed
     with_items:
       - "{{ AWS }}"
-    
+
+#  - name: EC2 Instance Info
+#    ec2_instance_info:
+#      aws_access_key: "{{ aws_access_key }}"
+#      aws_secret_key: "{{ aws_secret_key }}"
+#      filters:
+#        key-name: "{{ item.key_name }}"
+#      region: us-east-1
+#    register: ec2_instance_info
+#    when:
+#      - item.user == "{{ user }}"
+#    with_items:
+#      - "{{ AWS }}"
+#    
+#  - name: VAR
+#    copy: 
+#      content: "{{ ec2_instance_info.results | to_nice_yaml(indent=2) }}"
+#      dest: "{{ user_instance_file_path }}{{ item.user }}_instance_info.yml"
+#      force: yes
+#    when:
+#      - item.user == "{{ user }}"
+#    with_items:
+#      - "{{ AWS }}"

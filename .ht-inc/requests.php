@@ -40,7 +40,7 @@ function carrayRefresh() {
 	# here [cctedit] own function
 	global $user;
 
-	$file = '/tmp/user_file.json';
+	$file = '/var/www/html/vcl-2.5.1/cloud_bursting/user_data/user_file.json';
 	$content = $user['unityid'].'@'.$user['affiliation'];
 	$requestsff = getUserRequests("all");
 
@@ -60,7 +60,7 @@ function carrayRefresh() {
 	$jobj[$content] = $cparray;
 	file_put_contents($file, json_encode($jobj));
 
-	$file2 = '/tmp/session.txt';
+	$file2 = '/var/www/html/vcl-2.5.1/cloud_bursting/user_data/session.txt';
 	file_put_contents($file2, $content);
 }
 
@@ -1455,12 +1455,25 @@ function newReservationHTML() {
 	$h = '';
 	$h  = "<div dojoType=dijit.Dialog\n";
 	$h .= "      id=\"newResDlg\"\n";
-	$h .= "      title=\"" . i("New Reservation") . "\"\n";
+	$h .= "      title=\"" . ("New Reservation") . "\"\n";
 	$h .= "      duration=250\n";
 	$h .= "      draggable=true>\n";
 	$h .= "   <input type=\"hidden\" id=\"openend\" value=\"$openend\">\n";
 	$h .= "   <div id=\"newResDlgContent\">\n";
 
+  $file = "/var/www/html/vcl-2.5.1/cloud_bursting/user_data/session.txt";
+  $file2 = "/var/www/html/vcl-2.5.1/cloud_bursting/user_data/user_file.json";
+  $text = file_get_contents($file);
+  $string = file_get_contents($file2);
+  $jobj = json_decode($string, true);
+  $rcount = $jobj[$text]['requests'];
+  #echo "{}";
+#return;
+  #if($rcount >= 1) {
+#		$h .= "   <div align=\"center\"><br>\n";
+#		$h .= "       dijit.byId('newResDlg').hide();\n";
+#		$h .= "   </div>\n"; # center
+ # }
 	/*$cbtn  = "   <div align=\"center\"><br>\n";
 	$cbtn .= "   <button dojoType=\"dijit.form.Button\">\n";
 	$cbtn .= "     " . i("Close") . "\n";
@@ -1478,7 +1491,8 @@ function newReservationHTML() {
 		}
 	}
 	else*/
-		$h .= "<h2>" . i("New Reservation") . "</h2>\n";
+		$h .= "<h2>" . ("New Reservation") . "</h2>\n";
+		$h .= "<p><i><b>" . ("If your current reservations are more than 2, this reservation will be done on AWS") . "</i></b></p>\n";
 
 	if(! count($images)) {
 		$h .= i("You do not have access to any images.");

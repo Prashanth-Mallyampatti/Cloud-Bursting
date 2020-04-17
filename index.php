@@ -84,19 +84,21 @@ if($_GET["mode"]=="myAction"){
 }
 
 if($_GET["mode"]=="AWStrigger"){
-	$file = "/tmp/session.txt";
-	$file2 = "/tmp/user_file.json";
-
+	$file = "/var/www/html/vcl-2.5.1/cloud_bursting/user_data/session.txt";
+	$file2 = "/var/www/html/vcl-2.5.1/cloud_bursting/user_data/user_file.json";
 	$text = file_get_contents($file);
 	$string = file_get_contents($file2);
 	$jobj = json_decode($string, true);
 	$rcount = $jobj[$text]['requests'];
-	
-	if($rcount > 0) {
+  #echo "{}";
+#return;
+	if($rcount >= 2) {
 		shell_exec('bash /var/www/html/vcl-2.5.1/cloud_bursting/aws_trigger.sh');
+    echo "1"; return;
+    #exit;
 	}
 
-	return;
+	echo "0"; return;
 }
 
 printHTMLHeader();
