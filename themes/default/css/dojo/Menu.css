@@ -1,0 +1,76 @@
+.default .dijitMenu,
+.default .dijitMenuBar {
+	border: 1px solid #7eabcd;
+	margin: 0;
+	padding: 0;
+	background-color: #f7f7f7;
+}
+
+.default .dijitBorderContainer .dijitMenuBar {
+	border:1px solid #ccc;
+}
+
+.default .dijitMenuItem {
+	font-family: sans-serif;
+	margin: 0;
+}
+
+.default .dijitMenuItem {
+	padding: 4px 5px;
+}
+
+.default .dijitMenuPreviousButton, .default .dijitMenuNextButton {
+	font-style: italic;
+}
+.default .dijitMenuItem td {
+	padding: 2px;
+}
+
+.default .dijitMenuPassive .dijitMenuItemHover,
+.default .dijitMenuItemSelected {
+	background-color: #3559ac;
+	color:#fff;
+}
+
+.default .dijitMenuItemIcon {
+	width: 16px;
+	height: 16px;
+}
+
+.default .dijitMenuExpand {
+	/* arrow to indicate this MenuItem opens a sub-menu */
+	width: 7px;
+	height: 7px;
+	background-image: url('images/spriteArrows.png');
+	background-position: -14px 0;
+}
+.dj_ie6 .default .dijitMenuExpand {
+	background-image: url('images/spriteArrows.gif');
+}
+
+/* separator can be two pixels -- set border of either one to 0 to have only one */
+.default .dijitMenuSeparatorTop {
+	border-bottom: 1px solid #9b9b9b;
+}
+
+.default .dijitMenuSeparatorBottom {
+	border-top: 1px solid #e8e8e8;
+}
+
+/* the checked menu item */
+.default .dijitCheckedMenuItemIconChar {
+	display: none;
+}
+
+.default .dijitCheckedMenuItemIcon {
+	background-image: url('images/checkmark.png');
+	background-position: -80px;
+}
+
+.dj_ie6 .default .dijitCheckedMenuItemIcon {
+	background-image: url('images/checkmark.gif');
+}
+
+.default .dijitCheckedMenuItemChecked .dijitCheckedMenuItemIcon {
+	background-position: -64px;
+}

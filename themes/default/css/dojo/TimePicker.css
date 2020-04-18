@@ -1,0 +1,52 @@
+/* Time Picker */
+.default .dijitTimePickerTick,
+.default .dijitTimePickerMarker {
+	border-color: #ccc;
+}
+
+.default .dijitTimePickerTick {
+	color:white;
+}
+
+.default .dijitTimePickerMarker {
+	background:#d3d3d3 url("images/titleBar.png") repeat-x top;
+	color:#293a4b;
+	font-weight: bold;
+}
+
+.default .dijitTimePickerItemSelected {
+	color: black;
+	background: #bbc4d0 none;
+}
+
+.default .dijitTimePickerItemHover {
+	background: #60a1ea none;
+	color:white;
+}
+
+.default .dijitTimePickerItemHover,
+.default .dijitTimePickerItemSelected {
+	position: relative;
+	z-index: 10;
+}
+
+.default .dijitTimePickerTick .dijitTimePickerItemInner {
+	font-size:0.4em;
+}
+
+.default .dijitTimePickerItemHover .dijitTimePickerItemInner,
+.default .dijitTimePickerItemSelected .dijitTimePickerItemInner {
+	font-size:1em;
+}
+
+.default .dijitTimePickerMarkerHover {
+	border-top: 1px solid #ccc;
+}
+
+.default .dijitTimePickerTickHover,
+.default .dijitTimePickerTickSelected {
+	margin-top:-0.3em;
+	margin-bottom:-0.3em;
+	border-bottom: none;
+}
+

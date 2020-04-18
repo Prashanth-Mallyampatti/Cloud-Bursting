@@ -1,0 +1,21 @@
+/* ContentPane */
+
+.default .dijitContentPane {
+	padding: 0;
+}
+
+/* nested layouts */
+.default .dijitTabContainerTop-dijitContentPane,
+.default .dijitTabContainerLeft-dijitContentPane,
+.default .dijitTabContainerBottom-dijitContentPane,
+.default .dijitTabContainerRight-dijitContentPane,
+.default .dijitAccordionContainer-dijitContentPane {
+	background-color: #fff;
+	padding: 5px;
+}
+
+.default .dijitSplitContainer-dijitContentPane,
+.default .dijitBorderContainer-dijitContentPane {
+	background-color: #fff;		/* override background-color setting on parent .dijitBorderContainer */
+	padding: 5px;
+}

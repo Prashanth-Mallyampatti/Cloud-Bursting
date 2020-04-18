@@ -1,0 +1,33 @@
+/* DnD avatar-specific settings */
+/* For now it uses a default set of rules. Some other DnD classes can be modified as well. */
+.default .dojoDndItemBefore {
+	border-top: 2px solid #369;
+}
+
+.default .dojoDndItemAfter {
+	border-bottom: 2px solid #369;
+}
+
+.default .dojoDndItemOver {
+	cursor:pointer;
+}
+
+.default table.dojoDndAvatar { -moz-border-radius: 0; border: 1px solid #ccc; border-collapse: collapse; background-color: #fff; font-size: 75%; color: black;}
+.default .dojoDndAvatar td	{ border: none; }
+.default .dojoDndAvatar tr	{ border: none; }
+.default .dojoDndAvatarHeader td	{ height: 20px; padding: 0 0 0 21px; }
+.default .dojoDndAvatarItem td { padding: 2px;}
+.default.dojoDndMove .dojoDndAvatarHeader	{background-color: #f58383; background-image: url(images/dndNoMove.png); background-repeat: no-repeat; background-position: 2px center;}
+.default.dojoDndCopy .dojoDndAvatarHeader	{background-color: #f58383; background-image: url(images/dndNoCopy.png); background-repeat: no-repeat; background-position: 2px center;}
+.default.dojoDndMove .dojoDndAvatarCanDrop .dojoDndAvatarHeader	{background-color: #97e68d; background-image: url(images/dndMove.png); background-repeat: no-repeat; background-position: 2px center;}
+.default.dojoDndCopy .dojoDndAvatarCanDrop .dojoDndAvatarHeader	{background-color: #97e68d; background-image: url(images/dndCopy.png); background-repeat: no-repeat; background-position: 2px center;}
+
+.default .dijitContentPaneLoading {
+	background:url('images/loading.gif') no-repeat left center;
+	padding-left:25px;
+}
+
+.default .dijitContentPaneError {
+	background:url('images/warning.png') no-repeat left center;
+	padding-left:25px;
+}
