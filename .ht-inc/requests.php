@@ -1467,14 +1467,8 @@ function newReservationHTML() {
   $string = file_get_contents($file2);
   $jobj = json_decode($string, true);
   $rcount = $jobj[$text]['requests'];
-  #echo "{}";
-#return;
-  #if($rcount >= 1) {
-#		$h .= "   <div align=\"center\"><br>\n";
-#		$h .= "       dijit.byId('newResDlg').hide();\n";
-#		$h .= "   </div>\n"; # center
- # }
-	/*$cbtn  = "   <div align=\"center\"><br>\n";
+	
+/*$cbtn  = "   <div align=\"center\"><br>\n";
 	$cbtn .= "   <button dojoType=\"dijit.form.Button\">\n";
 	$cbtn .= "     " . i("Close") . "\n";
 	$cbtn .= "     <script type=\"dojo/method\" event=\"onClick\">\n";

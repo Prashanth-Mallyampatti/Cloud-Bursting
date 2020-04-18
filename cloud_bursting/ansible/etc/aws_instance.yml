@@ -1,6 +1,5 @@
----
 AWS:
-  - user: abc
-    instance_name: ec2_2911
-    key_name: abc_ec2_key
-    image_id: ami-0c322300a1dd5dc79
+- image_id: ami-07ebfd5b3428b6f4d
+  instance_name: admin_ec2_12
+  key_name: admin_ec2_key
+  user: admin

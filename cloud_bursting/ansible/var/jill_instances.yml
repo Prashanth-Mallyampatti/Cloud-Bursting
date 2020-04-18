@@ -1,0 +1,95 @@
+changed: true
+msg: All items completed
+results:
+- ansible_loop_var: item
+  changed: true
+  failed: false
+  instance_ids:
+  - i-0aef5396d7aeb38a6
+  instances:
+  - ami_launch_index: '0'
+    architecture: x86_64
+    block_device_mapping:
+      /dev/sda1:
+        delete_on_termination: true
+        status: attached
+        volume_id: vol-0b23dcf18a4d6aa4c
+    dns_name: ec2-52-90-92-207.compute-1.amazonaws.com
+    ebs_optimized: false
+    groups:
+      sg-07e854dd005c3cd8c: jill_sg
+    hypervisor: xen
+    id: i-0aef5396d7aeb38a6
+    image_id: ami-07ebfd5b3428b6f4d
+    instance_type: t2.micro
+    kernel: null
+    key_name: jill_ec2_key
+    launch_time: '2020-04-18T03:22:53.000Z'
+    placement: us-east-1c
+    private_dns_name: ip-172-31-88-236.ec2.internal
+    private_ip: 172.31.88.236
+    public_dns_name: ec2-52-90-92-207.compute-1.amazonaws.com
+    public_ip: 52.90.92.207
+    ramdisk: null
+    region: us-east-1
+    root_device_name: /dev/sda1
+    root_device_type: ebs
+    state: running
+    state_code: 16
+    tags:
+      ec2: jill
+    tenancy: default
+    virtualization_type: hvm
+  invocation:
+    module_args:
+      assign_public_ip: null
+      aws_access_key: AKIAIVCAOF2ZYPAVSOIQ
+      aws_secret_key: VALUE_SPECIFIED_IN_NO_LOG_PARAMETER
+      count: 1
+      count_tag: null
+      debug_botocore_endpoint_logs: false
+      ebs_optimized: false
+      ec2_url: null
+      exact_count: null
+      group:
+      - jill_sg
+      group_id: null
+      id: jill_ec2_11
+      image: ami-07ebfd5b3428b6f4d
+      instance_ids: null
+      instance_initiated_shutdown_behavior: stop
+      instance_profile_name: null
+      instance_tags:
+        ec2: jill
+      instance_type: t2.micro
+      kernel: null
+      key_name: jill_ec2_key
+      monitoring: false
+      network_interfaces: null
+      placement_group: null
+      private_ip: null
+      profile: null
+      ramdisk: null
+      region: us-east-1
+      security_token: null
+      source_dest_check: null
+      spot_launch_group: null
+      spot_price: null
+      spot_type: one-time
+      spot_wait_timeout: 600
+      state: present
+      tenancy: default
+      termination_protection: null
+      user_data: null
+      validate_certs: true
+      volumes: null
+      vpc_subnet_id: null
+      wait: true
+      wait_timeout: 300
+      zone: null
+  item:
+    image_id: ami-07ebfd5b3428b6f4d
+    instance_name: jill_ec2_11
+    key_name: jill_ec2_key
+    user: jill
+  tagged_instances: []

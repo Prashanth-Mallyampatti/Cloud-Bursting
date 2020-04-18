@@ -1216,12 +1216,12 @@ function submitNewReservation() {
 	fetch("/vcl/index.php?mode=AWStrigger").then(httpResponse=>{
      httpResponse.text().then(text=>{
        if(text==1){
-         jQuery("#dijit_form_Button_4_label").click();
+          jQuery("#newResDlg .dijitDialogCloseIcon").click();
+//         jQuery("#dijit_form_Button_4_label").click();
        }
        else{ 
    
     // from httpResponse: get the body (which is "0" or "1")
-    //console.log("hello");
 	if(dijit.byId('newResDlgBtn').get('label') == _('View Available Times')) {
 		showSuggestedTimes();
 		return;

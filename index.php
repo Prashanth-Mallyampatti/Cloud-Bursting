@@ -92,7 +92,7 @@ if($_GET["mode"]=="AWStrigger"){
 	$rcount = $jobj[$text]['requests'];
   #echo "{}";
 #return;
-	if($rcount >= 2) {
+	if($rcount >= 1) {
 		shell_exec('bash /var/www/html/vcl-2.5.1/cloud_bursting/aws_trigger.sh');
     echo "1"; return;
     #exit;
