@@ -19,6 +19,7 @@ parse_input()
     if [ $? -ne 0 ]
     then 
       echo "Parser script execution error" >> "$LOG_FILE"
+      exit 1
     else
       echo "Parsing done!" >> "$LOG_FILE"
     fi
@@ -54,6 +55,7 @@ aws_call()
     if [ $? -ne 0 ]
     then 
       echo "Ansible playbook execution error" >> "$LOG_FILE"
+      exit 1
     else
       echo "Playbook executed successfully!" >> "$LOG_FILE"
     fi
@@ -75,8 +77,9 @@ update_aws_db()
     if [ $? -ne 0 ]
     then
       echo "AWS DB script execution error" >> "$LOG_FILE"
+      exit 1
     else
-      echo >> "LOG_FILE"
+      echo >> "$LOG_FILE"
       echo "Write successful!" >> "$LOG_FILE"
     fi
   else
@@ -91,4 +94,4 @@ parse_input "$INPUT_PARSER"
 fetch_user "$SESSION"
 aws_call "$AWS_ANSIBLE" "$VAULT" "$USER_NAME"
 USER_INSTANCE="$AWS_OUTPUT""$USER_NAME""_instances.yml"
-update_aws_db "$AWS_DB" "$USER_INSTANCE"
+#update_aws_db "$AWS_DB" "$USER_INSTANCE"

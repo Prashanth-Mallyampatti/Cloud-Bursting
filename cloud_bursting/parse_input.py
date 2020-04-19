@@ -30,10 +30,10 @@ class Create_Input_File():
     self.user_name = user_data[session_data]["userid"].split('@')[0]
     self.image_name = user_data[session_data]["requestDetails"][0]["prettyimage"]
     
-    if "Centos" in self.image_name:
+    if "CentOS" in self.image_name:
       self.image_id = "ami-0c322300a1dd5dc79"  # Centos 8
-    else:
-      self.image_id = "ami-07ebfd5b3428b6f4d"  # Ubuntu 18
+    #else:
+    #  self.image_id = "ami-07ebfd5b3428b6f4d"  # Ubuntu 18
 
     self.key_name = self.user_name + "_ec2_key"
 

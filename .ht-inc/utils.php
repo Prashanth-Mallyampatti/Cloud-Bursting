@@ -6963,10 +6963,10 @@ function getAwsRequests(){
     $unityid = $user['unityid'];
     $query = "SELECT instance_id, "
 	       .        "public_ip, "
-	       .        "key_name, "
-	       .        "private_key "
-           . "FROM awsuser "
-           . "WHERE user = '$unityid'";
+         .        "dns, "
+	       .        "key_name "
+         . "FROM awsuser "
+         . "WHERE user = '$unityid'";
 
 	$qh = doQuery($query, 101);
     
