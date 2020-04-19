@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  gather_facts: False
+
+  vars_files:
+    - /var/www/html/vcl-2.5.1/cloud_bursting/ansible/etc/aws_instance.yml
+    - /var/www/html/vcl-2.5.1/cloud_bursting/ansible/keys/aws_keys.yml
+
+  vars:
+   instance_id: "{{ instance }}"
+
+  tasks:
+  - name: Terminate Instance
+    ec2:
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      region: us-east-1
+      state: absent
+      instance_ids: "{{ instance_id }}"

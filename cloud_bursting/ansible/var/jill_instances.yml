@@ -5,7 +5,7 @@ results:
   changed: true
   failed: false
   instance_ids:
-  - i-0af189b2cffefbff4
+  - i-0b5845c8cc35c19c3
   instances:
   - ami_launch_index: '0'
     architecture: x86_64
@@ -13,23 +13,23 @@ results:
       /dev/sda1:
         delete_on_termination: true
         status: attached
-        volume_id: vol-070c514ffe6a5feb2
-    dns_name: ec2-3-90-11-79.compute-1.amazonaws.com
+        volume_id: vol-02d466f7ad268649c
+    dns_name: ec2-18-233-170-199.compute-1.amazonaws.com
     ebs_optimized: false
     groups:
       sg-07e854dd005c3cd8c: jill_sg
     hypervisor: xen
-    id: i-0af189b2cffefbff4
+    id: i-0b5845c8cc35c19c3
     image_id: ami-07ebfd5b3428b6f4d
     instance_type: t2.micro
     kernel: null
     key_name: jill_ec2_key
-    launch_time: '2020-04-19T18:42:25.000Z'
+    launch_time: '2020-04-19T20:35:44.000Z'
     placement: us-east-1c
-    private_dns_name: ip-172-31-95-22.ec2.internal
-    private_ip: 172.31.95.22
-    public_dns_name: ec2-3-90-11-79.compute-1.amazonaws.com
-    public_ip: 3.90.11.79
+    private_dns_name: ip-172-31-84-17.ec2.internal
+    private_ip: 172.31.84.17
+    public_dns_name: ec2-18-233-170-199.compute-1.amazonaws.com
+    public_ip: 18.233.170.199
     ramdisk: null
     region: us-east-1
     root_device_name: /dev/sda1
@@ -54,7 +54,7 @@ results:
       group:
       - jill_sg
       group_id: null
-      id: jill_ec2_17
+      id: jill_ec2_18
       image: ami-07ebfd5b3428b6f4d
       instance_ids: null
       instance_initiated_shutdown_behavior: stop
@@ -89,7 +89,7 @@ results:
       zone: null
   item:
     image_id: ami-07ebfd5b3428b6f4d
-    instance_name: jill_ec2_17
+    instance_name: jill_ec2_18
     key_name: jill_ec2_key
     user: jill
   tagged_instances: []

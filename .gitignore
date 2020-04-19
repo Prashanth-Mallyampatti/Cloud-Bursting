@@ -5,8 +5,6 @@
 .ht-inc/pubkey.pem
 .ht-inc/secrets.php
 .ht-inc/spyc-0.5.1/
-dojo/
-themes/**/css/dojo
 # netbeans project files
 .settings/
 .buildpath
