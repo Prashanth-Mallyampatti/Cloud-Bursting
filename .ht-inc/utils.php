@@ -6958,12 +6958,16 @@ function getUserRequests($type, $id=0) {
 }
 
 function getAwsRequests(){
-    $query = "SELECT instance_id "
+    global $user;
+
+    $unityid = $user['unityid'];
+    $query = "SELECT instance_id, "
 	       .        "public_ip, "
 	       .        "key_name, "
-	       .        "user, "
 	       .        "private_key "
-	       . "FROM awsuser";
+           . "FROM awsuser "
+           . "WHERE user = '$unityid'";
+
 	$qh = doQuery($query, 101);
     
     $count = -1;
