@@ -26,7 +26,8 @@ $actions["pages"] = array();
 $actions["nextmodes"] = array();
 
 $actions["entry"] = array('main',
-			  'myAction',
+              'awsdetailsmode',
+              'myAction',
 			  'AWStrigger',
                           'viewRequests',
                           'blockAllocations',
@@ -234,6 +235,10 @@ $noHTMLwrappers = array('sendRDPfile',
 # main
 $actions['mode']['main'] = "main"; # entry
 $actions['pages']['main'] = "main";
+
+# AWS dashboard
+$actions['mode']['awsdetailsmode']="awsdetailsFunc";
+$actions['pages']['awsdetailsmode']="awsdetailsSection";
 
 # Database Check
 $actions['mode']['myAction']="myAction";

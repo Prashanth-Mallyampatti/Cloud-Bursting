@@ -300,7 +300,10 @@ function initGlobals() {
 
 	# include appropriate files
 	switch($actions['pages'][$mode]) {
-		case 'blockAllocations':
+        case 'awsdetailsSection':
+            require_once('.ht-inc/awsdetails.php');
+            break; 
+        case 'blockAllocations':
 			require_once(".ht-inc/blockallocations.php");
 			break;
 		case 'help':
@@ -6954,6 +6957,24 @@ function getUserRequests($type, $id=0) {
 	return $data;
 }
 
+function getAwsRequests(){
+    $query = "SELECT instance_id "
+	       .        "public_ip, "
+	       .        "key_name, "
+	       .        "user, "
+	       .        "private_key "
+	       . "FROM awsuser";
+	$qh = doQuery($query, 101);
+    
+    $count = -1;
+    $data = array();
+    while($row = mysqli_fetch_assoc($qh)){
+        $count++;
+        $data[$count] = $row;
+    }
+    return $data;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 ///
 /// \fn isComputerLoading($request, $computers)
@@ -13278,7 +13299,11 @@ function getNavMenu($inclogout, $inchome, $homeurl=HOMEURL) {
 		if($menudata['authentication']['selected'])
 			$rt .= " class=\"selected\"";
 		$rt .= "><a href=\"{$menudata['authentication']['url']}\">{$menudata['authentication']['title']}</a></li>\n";
-	}
+    }
+    # here
+    $rt .= menulistLI('awsdetails');
+    $rt .= "<a href=\"" . BASEURL . SCRIPT . "?mode=awsdetailsmode\">";
+    $rt .= "AWS DETAILS HEre</a></li>\n";
 	return $rt;
 }
 
