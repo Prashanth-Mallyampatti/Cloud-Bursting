@@ -36,10 +36,28 @@
       - ec2_key_result.changed
     with_items:
       - "{{ AWS }}"
+  
+  - name: Store Key Pair for Download
+    copy:
+      content: "{{ ec2_key_result.results[0].key.private_key }}"
+      dest: /var/www/html/{{ item.key_name }}.pem
+      force: yes
+    when:
+      - item.user == "{{ user }}"
+      - ec2_key_result.changed
+    with_items:
+      - "{{ AWS }}"
 
   - name: Set Key Permission
     file:
       path: "{{ user_key_file_path }}{{ item.key_name }}.pem"
+      mode: '400'
+    with_items:
+      - "{{ AWS }}"
+
+  - name: Set Key Permission for Download
+    file:
+      path: /var/www/html/{{ item.key_name }}.pem
       mode: '400'
     with_items:
       - "{{ AWS }}"
