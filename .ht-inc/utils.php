@@ -13338,6 +13338,10 @@ function getNavMenuData($homeurl=HOMEURL) {
 		                          "schedules" => array());
 	$menudata = array();
 
+  $menudata['aws_reservation']['url'] = BASEURL . SCRIPT . "?mode=awsdetailsmode";
+  $menudata['aws_reservation']['title'] = i('AWS Reservations');
+  $menudata['aws_reservation']['selected'] = checkMenuItemSelected('aws_reservation');
+
 	$menudata['home']['url'] = $homeurl;
 	$menudata['home']['title'] = i('HOME');
 	$menudata['home']['selected'] = checkMenuItemSelected('home');

@@ -1216,7 +1216,9 @@ function submitNewReservation() {
 	fetch("/vcl/index.php?mode=AWStrigger").then(httpResponse=>{
      httpResponse.text().then(text=>{
        if(text==1){
-          jQuery("#newResDlg .dijitDialogCloseIcon").click();
+           window.location = "/vcl/index.php?mode=awsdetailsmode";
+           return;
+          //jQuery("#newResDlg .dijitDialogCloseIcon").click();
 //         jQuery("#dijit_form_Button_4_label").click();
        }
        else{ 

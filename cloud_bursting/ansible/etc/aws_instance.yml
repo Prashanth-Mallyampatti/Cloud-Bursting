@@ -1,5 +1,5 @@
 AWS:
 - image_id: ami-0c322300a1dd5dc79
-  instance_name: admin_ec2_30
+  instance_name: admin_ec2_34
   key_name: admin_ec2_key
   user: admin

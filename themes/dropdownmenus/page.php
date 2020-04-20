@@ -108,6 +108,7 @@ function getHeader($refresh) {
 
 	if($authed) {
 		$menu = getNavMenuData();
+    $awsrequests = count(getAwsRequests())>0;
 		uasort($menu, 'sortMenuList');
 
 		if($menu['reservations']['selected'])
@@ -141,6 +142,9 @@ function getHeader($refresh) {
 		$rt .= "              </li>\n";
 		$rt .= "              <li><a href=\"{$menu['codeDocumentation']['url']}\">{$menu['codeDocumentation']['title']}</a></li>\n";
 	}
+    if($awsrequests)
+    $rt .=" <li><a href=\"{$menu['aws_reservation']['url']}\">{$menu['aws_reservation']['title']}</a></li>\n";
+
 	# example help menu
 	/*$rt .= "               <li><a href=\"#\" data-toggle=\"dropdown\">" . i(Help & Documentation) . "<b class=\"caret\"></b></a>\n";
 	$rt .= "<ul class=\"dropdown-menu\">\n";

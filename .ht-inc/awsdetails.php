@@ -5,7 +5,12 @@ function awsdetailsFunc() {
     
     $requests = getAwsRequests();
     $count = count($requests);
-    
+   
+    if($count == 0)
+    {
+      print("No current reservations in AWS");
+      return;
+    } 
     $outerText = '';
 
     $outerText .= "<table>\n";
