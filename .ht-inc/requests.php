@@ -1486,7 +1486,7 @@ function newReservationHTML() {
 	}
 	else*/
 		$h .= "<h2>" . ("New Reservation") . "</h2>\n";
-		$h .= "<p><i><b>" . ("If your current reservations are more than 2, this reservation will be done on AWS") . "</i></b></p>\n";
+		$h .= "<p><i><b>" . ("If your current reservations are more than 1, this reservation will be done on AWS") . "</i></b></p>\n";
 
 	if(! count($images)) {
 		$h .= i("You do not have access to any images.");

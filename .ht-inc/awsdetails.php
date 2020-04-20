@@ -32,11 +32,29 @@ function awsdetailsFunc() {
             $cmd = "ssh -i \"".$key_name.".pem\" ";
             $text .= "<td>{$cmd} ";
             $text .= "ec2-user@{$requests[$i]['dns']}</td>\n";
-            $text .= "</tr>\n";
+
+            $text .= "<td>";
+            $options = array(0 => "{$unityid}",
+                    1 => "{$requests[$i]['instance_id']}");
+            $text .= "<FORM action=\"" . BASEURL . SCRIPT . "\" method=post>\n";
+            $cont = addContinuationsEntry("awsdeleteform", $options);
+            $text .= "<INPUT type=hidden name=continuation value=\"$cont\">\n";
+            $text .= "<INPUT type=submit value=Delete>\n";
+            $text .= "</FORM>\n";
+            $text .= "</td></tr>";
             $outerText .= $text;
     };
    
     $outerText .= "</table>\n";
     print $outerText;
 }
+
+function awsdeleteform() {
+    $data = getContinuationVar();
+    #print "We got user: {$data[0]}";
+    #print "We got instance: {$data[1]}";
+    
+    shell_exec("bash /var/www/html/vcl-2.5.1/cloud_bursting/remove_aws_instance.sh {$data[0]} {$data[1]}");
+    awsdetailsFunc();
+ } 
 ?>

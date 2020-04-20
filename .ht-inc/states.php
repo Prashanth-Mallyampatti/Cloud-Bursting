@@ -240,6 +240,10 @@ $actions['pages']['main'] = "main";
 $actions['mode']['awsdetailsmode']="awsdetailsFunc";
 $actions['pages']['awsdetailsmode']="awsdetailsSection";
 
+# AWS delete form
+$actions['mode']['awsdeleteform'] = "awsdeleteform";
+$actions['pages']['awsdeleteform'] = "awsdetailsSection";
+
 # Database Check
 $actions['mode']['myAction']="myAction";
 $actions['args']['myAction']="myAction";

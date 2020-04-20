@@ -5,7 +5,7 @@ results:
   changed: true
   failed: false
   instance_ids:
-  - i-07893c50b78159612
+  - i-02c09e937f395b99a
   instances:
   - ami_launch_index: '0'
     architecture: x86_64
@@ -13,23 +13,23 @@ results:
       /dev/sda1:
         delete_on_termination: true
         status: attached
-        volume_id: vol-0b43ceb7a3db9c13e
-    dns_name: ec2-52-90-189-221.compute-1.amazonaws.com
+        volume_id: vol-001622bada4184659
+    dns_name: ec2-35-173-196-182.compute-1.amazonaws.com
     ebs_optimized: false
     groups:
       sg-0ddf511f36f60d835: admin_sg
     hypervisor: xen
-    id: i-07893c50b78159612
+    id: i-02c09e937f395b99a
     image_id: ami-0c322300a1dd5dc79
     instance_type: t2.micro
     kernel: null
     key_name: admin_ec2_key
-    launch_time: '2020-04-19T23:52:02.000Z'
-    placement: us-east-1c
-    private_dns_name: ip-172-31-94-60.ec2.internal
-    private_ip: 172.31.94.60
-    public_dns_name: ec2-52-90-189-221.compute-1.amazonaws.com
-    public_ip: 52.90.189.221
+    launch_time: '2020-04-20T17:53:48.000Z'
+    placement: us-east-1a
+    private_dns_name: ip-172-31-35-124.ec2.internal
+    private_ip: 172.31.35.124
+    public_dns_name: ec2-35-173-196-182.compute-1.amazonaws.com
+    public_ip: 35.173.196.182
     ramdisk: null
     region: us-east-1
     root_device_name: /dev/sda1
@@ -54,7 +54,7 @@ results:
       group:
       - admin_sg
       group_id: null
-      id: admin_ec2_34
+      id: admin_ec2_40
       image: ami-0c322300a1dd5dc79
       instance_ids: null
       instance_initiated_shutdown_behavior: stop
@@ -89,7 +89,7 @@ results:
       zone: null
   item:
     image_id: ami-0c322300a1dd5dc79
-    instance_name: admin_ec2_34
+    instance_name: admin_ec2_40
     key_name: admin_ec2_key
     user: admin
   tagged_instances: []
