@@ -5,8 +5,14 @@ AWS_ANSIBLE="/var/www/html/vcl-2.5.1/cloud_bursting/ansible/src/create_aws_insta
 VAULT="/var/www/html/vcl-2.5.1/cloud_bursting/ansible/keys/vault_secret.sh"
 SESSION="/var/www/html/vcl-2.5.1/cloud_bursting/user_data/session.txt"
 LOG_FILE="/var/log/cloud_bursting/logs"
+LOG_DIR="/var/log/cloud_bursting/"
 AWS_OUTPUT="/var/www/html/vcl-2.5.1/cloud_bursting/ansible/var/"
 AWS_DB="/var/www/html/vcl-2.5.1/cloud_bursting/write_table.py"
+
+create_log_directory()
+{
+  mkdir -p "$LOG_DIR"
+}
 
 parse_input()
 {
@@ -90,6 +96,8 @@ update_aws_db()
 
 ################ Main ################
 
+
+create_log_directory 
 parse_input "$INPUT_PARSER"
 fetch_user "$SESSION"
 aws_call "$AWS_ANSIBLE" "$VAULT" "$USER_NAME"
