@@ -11,7 +11,11 @@ AWS_DB="/var/www/html/vcl-2.5.1/cloud_bursting/write_table.py"
 
 create_log_directory()
 {
-  mkdir -p "$LOG_DIR"
+  mkdir -p -m 777 "$LOG_DIR"
+  if [ ! -f "$LOG_FILE" ]
+  then
+    touch "$LOG_FILE"
+  fi
 }
 
 parse_input()
