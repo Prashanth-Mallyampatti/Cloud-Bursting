@@ -36,7 +36,7 @@ Setup Environment for Cloud Bursting:
     ```
     chmod 777 /var/www/html/vcl-2.5.1
     chmod -R 777 /var/www/html/vcl-2.5.1/cloud_bursting
-    chmod -R 777 /var/log/cloud_bursting/
+    chmod -R 777 /var/log/
     ```
     Any Ansible permission errors, please set the persmissions to 777 to the file or directory pointed in ansible logs or in httpd error logs.
     
