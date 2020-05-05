@@ -100,7 +100,6 @@ update_aws_db()
 
 ################ Main ################
 
-
 create_log_directory 
 parse_input "$INPUT_PARSER"
 fetch_user "$SESSION"
